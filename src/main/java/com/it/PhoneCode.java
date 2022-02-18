@@ -43,6 +43,7 @@ public class PhoneCode {
         } else if (Integer.valueOf(count) > 2) {
             System.out.println("今天发送次数超过三次了");
             jedis.close();
+            return;
         }
         String vcode = getCode();
         jedis.setex(codeKey, 120, vcode);
